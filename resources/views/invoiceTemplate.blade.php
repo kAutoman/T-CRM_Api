@@ -26,10 +26,10 @@
         </tr>
         @foreach(json_decode($invoiceData->items) as $item)
             <tr>
-                <td style="text-align:center;">{{ $item->quality }}</td>
+                <td style="text-align:center;">{{ $item->quantity }}</td>
                 <td style="text-align:center;">{{ $item->description }}</td>
                 <td style="text-align:center;">{{ $item->price }}</td>
-                <td style="text-align:center;">{{ $item->quality * $item->price  }}</td>
+                <td style="text-align:center;">{{ $item->quantity * $item->price  }}</td>
             </tr>
         @endforeach
     </table>

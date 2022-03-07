@@ -139,7 +139,7 @@ const Dashboard = {
         for (let item of parsed){
             html += '<tr>'+
                 '<th scope="row"><i class="mdi mdi-close text-danger" style="cursor: pointer" onclick="$(this).parent().parent().remove();Dashboard.removeInvoiceItem('+i+');"></i></th>'+
-                '<td  class="cursor-pointer" onclick="Dashboard.editInvoiceItem('+i+');">'+item.quality+'</td>'+
+                '<td  class="cursor-pointer" onclick="Dashboard.editInvoiceItem('+i+');">'+item.quantity+'</td>'+
                 '<td  class="cursor-pointer" onclick="Dashboard.editInvoiceItem('+i+');">'+item.description+'</td>'+
                 '<td  class="cursor-pointer" onclick="Dashboard.editInvoiceItem('+i+');">'+item.price+'</td>'+
                 '</tr>';
@@ -170,7 +170,7 @@ const Dashboard = {
         let parsed = JSON.parse(items);
         let record = parsed[index];
         $('#invoiceModal').modal('hide');
-        $('#quality').val(record.quality);
+        $('#quantity').val(record.quantity);
         $('#descriptionItem').val(record.description);
         $('#price').val(record.price);
         $('#hid_invoiceItem_mode').val('edit');
@@ -184,7 +184,7 @@ const Dashboard = {
     },
     addInvoiceItem : () => {
         $('#invoiceModal').modal('hide');
-        $('#quality').val('');
+        $('#quantity').val('');
         $('#descriptionItem').val('');
         $('#price').val('');
         $('#invoiceItemModal').modal('show');
@@ -194,7 +194,7 @@ const Dashboard = {
         let originalItems = $('#hid_invoice_items').val();
         let parsed = JSON.parse(originalItems);
         let temp = {};
-        temp.quality = $('#quality').val();
+        temp.quantity = $('#quality').val();
         temp.price = $('#price').val();
         temp.description = $('#descriptionItem').val();
         let mode = $('#hid_invoiceItem_mode').val();
@@ -213,7 +213,7 @@ const Dashboard = {
         for (let item of parsed){
             html += '<tr class="cursor-pointer">'+
                 '<th scope="row"><i class="mdi mdi-close text-danger" style="cursor: pointer"  onclick="$(this).parent().parent().remove();Dashboard.removeInvoiceItem('+i+');"></i></th>'+
-                '<td onclick="Dashboard.editInvoiceItem('+i+');">'+item.quality+'</td>'+
+                '<td onclick="Dashboard.editInvoiceItem('+i+');">'+item.quantity+'</td>'+
                 '<td onclick="Dashboard.editInvoiceItem('+i+');">'+item.description+'</td>'+
                 '<td onclick="Dashboard.editInvoiceItem('+i+');">'+item.price+'</td>'+
                 '</tr>';

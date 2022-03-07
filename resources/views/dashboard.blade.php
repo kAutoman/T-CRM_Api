@@ -310,7 +310,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-md" id="quality" placeholder="quality">
+                                <input type="text" class="form-control form-control-md" id="quantity" placeholder="quality">
                             </div>
                             <div class="form-group">
                                 <textarea rows="3" class="form-control form-control-md" id="descriptionItem" placeholder="description"></textarea>
