@@ -1,13 +1,21 @@
-<div class="container">
-    <div style="text-align: right;">
-        <h5>Invoice</h5>
-        <h5>Invoice Date: {{$invoiceData->invoice_date}}</h5>
-        <h5>Invoice No: {{$invoiceData->invoice_no}}</h5>
-    </div>
-    <div style="display: flex;">
-        <img src="{{empty($invoiceData->preset1)? public_path('/assets/images/logo.jpg') :public_path("/uploads/invoice/{$invoiceData->preset1}") }}" height="100">
-        <img src="{{empty($invoiceData->preset2)? public_path('/assets/images/logo2.jpg') :public_path("/uploads/invoice/{$invoiceData->preset2}") }}" height="100">
-    </div>
+<div style="width: 90%; margin: 0 auto">
+    <table>
+        <tr>
+            <td>
+                <div style="display: inline-block; margin-top: 40px">
+                    <img src="{{empty($invoiceData->preset1)? public_path('/assets/images/logo.jpg') :public_path("/uploads/invoice/{$invoiceData->preset1}") }}" height="100">
+                    <img src="{{empty($invoiceData->preset2)? public_path('/assets/images/logo2.jpg') :public_path("/uploads/invoice/{$invoiceData->preset2}") }}" height="100">
+                </div>
+            </td>
+            <td style="text-align: right">
+                <div style="text-align: right; display: inline-block; float: right">
+                    <h5>Invoice</h5>
+                    <h5>Invoice Date: {{$invoiceData->invoice_date}}</h5>
+                    <h5>Invoice No: {{$invoiceData->invoice_no}}</h5>
+                </div>
+            </td>
+        </tr>
+    </table>
     <div style="text-align: left;">
         <h4>{{$invoiceData->from_address}}</h4>
         <h4>{{$invoiceData->to}}</h4>
@@ -15,9 +23,9 @@
         <br>
         <h4>Mail : {{$invoiceData->email}}</h4>
         <h4>Mobile : {{$invoiceData->mobile_num}}</h4>
-        <h4>To : {{$invoiceData->to}}</h4>
+        <h4>To : <br>{{$invoiceData->to}}</h4>
     </div>
-    <table class="table table-bordered table-striped">
+    <table style="width: 100%;">
         <tr>
             <th style="text-align:center;"><b>QTY</b></th>
             <th style="text-align:center;"><b>DESCRIPTION</b></th>
@@ -33,16 +41,23 @@
             </tr>
         @endforeach
     </table>
-    <div style="width: 100%;">
-        <div style="height: 100px;">
-            <h4>Comments:<br>{{$invoiceData->comment}}</h4>
-        </div>
-        <div style="width: 100px;">
-            <h4>Excluding VAT: {{$invoiceData->excluding_vat}}</h4>
-            <h4>VAT Amount: {{$invoiceData->vat_amount}}</h4>
-            <h4>Invoice Total: {{$invoiceData->invoice_total}}</h4>
-            <h4>Paid Amount: {{$invoiceData->payed_amount}}</h4>
-            <h4>Due Total: {{$invoiceData->due_total}}</h4>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <td>
+                <div style="display: inline-block">
+                    <h4>Comments:<br>{{$invoiceData->comment}}</h4>
+                </div>
+            </td>
+            <td style="text-align: right">
+                <div style="display: inline-block;">
+                    <h4>Excluding VAT: {{$invoiceData->excluding_vat}}</h4>
+                    <h4>VAT Amount: {{$invoiceData->vat_amount}}</h4>
+                    <h4>Invoice Total: {{$invoiceData->invoice_total}}</h4>
+                    <h4>Paid Amount: {{$invoiceData->payed_amount}}</h4>
+                    <h4>Due Total: {{$invoiceData->due_total}}</h4>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <h5 style="text-align: center">Thank you</h5>
 </div>
