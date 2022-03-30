@@ -82,6 +82,7 @@ Route::get('/getAllAttach','\App\Http\Controllers\CustomerController@getAllAttac
 
 Route::any('/attach_file','\App\Http\Controllers\FileController@uploadAttach');
 Route::any('/get_attach_files','\App\Http\Controllers\FileController@get_attach_files');
+Route::any('/delete_attach_file','\App\Http\Controllers\FileController@delete_attach_file');
 
 
 Route::get('/register',function (){

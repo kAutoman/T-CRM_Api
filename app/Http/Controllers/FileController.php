@@ -50,7 +50,20 @@ class FileController extends Controller
     }
 
     public function get_attach_files(Request $request){
-        $result = DB::table('attach_files')->get();
+        $result = DB::table('attach_files')->get('file_path');
         return response()->json($result);
+    }
+
+    public function delete_attach_file(Request $request){
+        $fileName = $request->get('name');
+        if (empty($fileName)){
+            return response()->json('please input file name',400);
+        }
+        $realFilePath = public_path('uploads/attach/'.$fileName);
+        if (file_exists($realFilePath)){
+            unlink($realFilePath);
+        }
+        DB::table('attach_files')->where('file_path',$fileName)->delete();
+        return response()->json('success');
     }
 }
