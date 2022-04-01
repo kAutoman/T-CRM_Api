@@ -285,7 +285,7 @@ class CustomerController extends Controller
             $temp = [];
             $temp['invoice_no'] = $line[1];
             $temp['email']  = $line[2];
-            $temp['invoice_date'] = $line[3] == '' ? 0 : $line[3];
+            $temp['invoice_date'] = $line[3] == '' ? date('Y-m-d H:i:s') : $line[3];
             $temp['mobile_num'] = $line[4];
             $temp['to'] = $line[5];
             $temp['from_address'] = $line[6];
