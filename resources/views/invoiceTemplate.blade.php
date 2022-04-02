@@ -57,12 +57,25 @@ function convertStandardTime($input){
                     </div>
                 </td>
                 <td style="text-align: right">
-                    <div style="display: inline-block;line-height: 10px">
-                        <h4>Excluding VAT: {{$invoiceData->excluding_vat}}</h4>
-                        <h4>VAT Amount: {{$invoiceData->vat_amount}}</h4>
-                        <h4>Invoice Total: {{$invoiceData->invoice_total}}</h4>
-                        <h4>Paid Amount: {{$invoiceData->payed_amount}}</h4>
-                        <h4>Due Total: {{$invoiceData->due_total}}</h4>
+                    <div style="text-align: right;line-height: 20px">
+                        <table width="400">
+                            <tr>
+                                <td style="font-weight: bolder">VAT Amount : </td>
+                                <td style="text-align: left;font-weight: bolder"> {{$invoiceData->vat_amount}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">Invoice Total : </td>
+                                <td style="text-align: left;font-weight: bolder"> {{$invoiceData->invoice_total}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">Paid Amount : </td>
+                                <td style="text-align: left;font-weight: bolder"> {{$invoiceData->payed_amount}}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bolder">Due Total : </td>
+                                <td style="text-align: left;font-weight: bolder"> {{$invoiceData->due_total}}</td>
+                            </tr>
+                        </table>
                     </div>
                 </td>
             </tr>

@@ -41,12 +41,12 @@
                                 <option value="{{$category->id}}" {{!empty($search['category'])&&$search['category'] == $category->id ? 'selected':''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
-                        <input type="date" data-date-format="DD/mm/YYYY" class="form-control" style="width: 150px" id="search_date_from" placeholder="Date From" name="search[date_from]" value="{{$search['date_from']?? ''}}">
-                        <input type="date" data-date-format="DD/mm/YYYY" class="form-control" style="width: 150px" id="search_date_to" placeholder="Date To" name="search[date_to]" value="{{$search['date_to']?? ''}}">
+                        <input type="text" class="form-control date-picker" style="width: 150px" id="search_date_from" placeholder="Date From" name="search[date_from]" value="{{$search['date_from']?? ''}}">
+                        <input type="text" class="form-control date-picker" style="width: 150px" id="search_date_to" placeholder="Date To" name="search[date_to]" value="{{$search['date_to']?? ''}}">
                     </form>
                 </div>
             </h3>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" style="margin-left: auto;">
                 <ul class="breadcrumb">
                     <button type="button" class="btn btn-sm btn-outline-behance" onclick="Dashboard.clearSearch()"><i class="mdi mdi-erase menu-icon"></i>clear</button>
                 </ul>

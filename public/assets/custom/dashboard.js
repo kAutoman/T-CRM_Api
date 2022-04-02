@@ -27,6 +27,7 @@ const Dashboard = {
         $('#search_form').find("input[type=text] , textarea ").each(function() {
             $(this).val('');
         });
+        $('#search_form').submit();
     },
     preview1 : () => {
         frame1.src = URL.createObjectURL(event.target.files[0]);
@@ -100,7 +101,14 @@ const Dashboard = {
                         $('#invoice_body').html('<tr id="invoice_nodata">\n' +
                             '   <td colspan="2" class="text-center" >No Data</td>\n' +
                             '</tr>');
-                    }
+                    };
+                    setTimeout(function(){
+                        $('.dz-image-preview').click(function (){
+                            window.open($($(this).children().first().children().first()).attr('src'),'blank');
+                        });    
+                    },100);
+                    
+
                     // $('#category').val(response.customer.category_id).change();
                     $('#categoryModal').modal('show');
                 }
@@ -348,7 +356,15 @@ $(document).ready(function(){
         $('#search_form').submit();
     });
 
-    // $('.date-picker').datepicker();
+    $('.date-picker').datepicker({
+            dateFormat: "dd/mm/yy",
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            orientation: "bottom left" // left bottom of the input field
+    });
 
     let originFile;
     $("#my-dropzone").dropzone({
@@ -381,10 +397,6 @@ $(document).ready(function(){
             $('#hid_attached_files').val(JSON.stringify(temp));
         },
     });
-    setTimeout(function (){
-        $('.dz-image-preview').click(function (){
-            window.open($($(this).children().first().children().first()).attr('src'),'blank');
-        })
-    },3000)
+   
 
 })

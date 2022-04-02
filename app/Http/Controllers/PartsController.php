@@ -42,7 +42,12 @@ class PartsController extends Controller
         if (empty($record)){
             return response()->json('no_data',400);
         }
+
         PartsModel::find($id)->update($record);
+        if(($record['is_shopping'] == 0) && ($record['mq'] > $record['q'])){
+            $record['is_shopping'] = 1;
+            PartsModel::insert($record);
+        }
         return response()->json(PartsModel::all());
     }
 
@@ -67,7 +72,7 @@ class PartsController extends Controller
         }
 
         PartsModel::insert($record);
-        if(($record['is_shopping'] == 0) && ($record['mq'] < $record['q'])){
+        if(($record['is_shopping'] == 0) && ($record['mq'] > $record['q'])){
             $record['is_shopping'] = 1;
             PartsModel::insert($record);
         }
